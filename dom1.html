@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PREMIERS TESTS.</title>
+        <link rel="stylesheet" href="dom1.css">
+    </head>
+    <body>
+        <div id="image">
+            <img onmouseenter= "smallcat(this)" onmouseleave="normalcat(this)" src="cat.jpg" alt="cat" style="width: 400px; height: 350px;margin-left: 15px; margin-top: 8px;">
+       <!-- onmouseenter chuot tu ngoai vao trong -->
+       <!-- onmouseleave chuot tu trong ra ngoai -->
+            <img onmouseover= "change_image(this)" onmouseout="retourne(this)" src="cat.jpg" alt="cat" style="width: 400px; height: 350px; margin-left: 50px; margin-top: 8px;">
+        </div>
+        <button onclick="back_color()" class="bouton">Click me</button>
+        <div>
+            <div id="ex2">
+            <img src="dog.jpg" alt="dog" id="picture" style="width: 400px; height: 350px;margin-left: 15px; margin-top: 8px;">
+            <img onmouseover= "change_image(this)" onmouseout="retourne(this)" src="cu.jpg" alt="cu" id="picture" style="width: 400px; height: 350px; margin-left: 50px; margin-top: 8px;">
+            </div>
+            <button onclick="hasard()" id="bouton2">PICTURE</button>
+        </div>
+        
+        </div>
+        <button onclick="generator()" id="bouton3">PICTURE</button>  
+        <p id="mes_images"></p>
+        </div>
+       <script>
+            // alert("thuy"); 
+            var tab_img = ["cu.jpg","dog.jpg","gau.jpg","voi.jpg","cat.jpg"];
+            function smallcat(x) {
+                x.style.height ="200px";
+                x.style.width ="200px";
+            }
+            function normalcat(x) {
+                x.style.height ="350px";
+                x.style.width ="400px";
+            }
+            function change_image(x) {
+                x.src ="dog.jpg";
+            }
+            function retourne(x) {
+                x.src ="cat.jpg";
+            }
+            function back_color() {
+                document.body.style.backgroundColor = "pink";
+            }
+            function hasard() {
+                    var number = Math.floor(Math.random()*tab_img.length);
+                    document.getElementById("picture").src = tab_img[number];
+            }
+            function generator() {
+                    var number = Math.floor(Math.random()*tab_img.length);
+                    var x = document.createElement("img");
+                    x.setAttribute("src",tab_img[number]);
+                    x.setAttribute("height","150px");
+                    x.setAttribute("width","150px");
+                    document.getElementById("mes_images").appendChild(x);
+            }
+        </script>
+    </body>
+</html>
